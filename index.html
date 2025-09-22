@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEB-CBT - Panduan Lengkap CBT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Platforms Section */
+        .platforms {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .platform-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .platform-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .windows { color: #0078d4; }
+        .apple { color: #007aff; }
+        .tablet { color: #ff6b6b; }
+
+        .platform-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .platform-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .download-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #f8f9fa;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
+        }
+
+        /* Steps Section */
+        .steps {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .steps-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #f5576c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 2;
+            position: relative;
+        }
+
+        .step-content {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Step Download Buttons */
+        .step-download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .step-platform-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .step-platform-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .step-platform-btn.windows-btn:hover {
+            border-color: #0078d4;
+            color: #0078d4;
+            box-shadow: 0 8px 25px rgba(0,120,212,0.3);
+        }
+
+        .step-platform-btn.mac-btn:hover {
+            border-color: #007aff;
+            color: #007aff;
+            box-shadow: 0 8px 25px rgba(0,122,255,0.3);
+        }
+
+        .step-platform-btn.ipad-btn:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+        }
+
+        .step-platform-btn.config-btn:hover {
+            border-color: #28a745;
+            color: #28a745;
+            box-shadow: 0 8px 25px rgba(40,167,69,0.3);
+        }
+
+        .step-platform-btn i {
+            font-size: 1.2rem;
+        }
+        .download-section {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .download-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .platform-download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .platform-download-btn:hover::before {
+            left: 100%;
+        }
+
+        .platform-download-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .windows-btn:hover {
+            border-color: #0078d4;
+            box-shadow: 0 15px 40px rgba(0,120,212,0.3);
+        }
+
+        .mac-btn:hover {
+            border-color: #007aff;
+            box-shadow: 0 15px 40px rgba(0,122,255,0.3);
+        }
+
+        .ipad-btn:hover {
+            border-color: #ff6b6b;
+            box-shadow: 0 15px 40px rgba(255,107,107,0.3);
+        }
+
+        .platform-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .platform-logo {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .windows-btn .platform-logo {
+            color: #0078d4;
+            background: rgba(0,120,212,0.1);
+        }
+
+        .mac-btn .platform-logo {
+            color: #007aff;
+            background: rgba(0,122,255,0.1);
+        }
+
+        .ipad-btn .platform-logo {
+            color: #ff6b6b;
+            background: rgba(255,107,107,0.1);
+        }
+
+        .platform-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .platform-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .platform-desc {
+            font-size: 0.9rem;
+            color: #666;
+            opacity: 0.8;
+        }
+
+        .platform-download-btn .fa-download {
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .platform-download-btn:hover .fa-download {
+            transform: translateY(2px);
+        }
+        .faq {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .download-buttons {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .platform-download-btn {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .platform-logo {
+                font-size: 2rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .step-download-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .step-platform-btn {
+                min-width: auto;
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                Safe Exam Browser
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#platforms">Platform</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#steps">Panduan</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Tutorial Install SEB</h1>
+                <p>Panduan lengkap instalasi dan penggunaan Safe Exam Browser untuk ujian CBT yang aman dan terpercaya</p>
+                <a href="#platforms" class="cta-button">
+                    <i class="fas fa-download"></i> Mulai Install Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <!-- <section class="platforms" id="platforms">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Pilih Device Anda</h2>
+            
+            <div class="platform-grid">
+                <div class="platform-card animate-on-scroll">
+                    <i class="fab fa-windows platform-icon windows"></i>
+                    <h3>Windows</h3>
+                    <p>Panduan instalasi Safe Exam Browser untuk Windows. Kompatibel dengan semua versi desktop Windows modern.</p>
+                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="download-btn" onclick="showTutorial('windows')">
+                        <i class="fas fa-play"></i> Download Software
+                    </a>
+                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="download-btn" onclick="showTutorial('windows')">
+                        <i class="fas fa-play"></i> Download Config
+                    </a>
+                </div>
+
+                <div class="platform-card animate-on-scroll">
+                    <i class="fab fa-apple platform-icon apple"></i>
+                    <h3>MacBook</h3>
+                    <p>Petunjuk lengkap untuk menginstall Safe Exam Browser di macOS. Mendukung Intel dan Apple Silicon (M1/M2).</p>
+                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="download-btn" onclick="showTutorial('mac')">
+                        <i class="fas fa-play"></i> Download Aplikasi
+                    </a>
+                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="download-btn" onclick="showTutorial('mac')">
+                        <i class="fas fa-play"></i> Download Config
+                    </a>
+                </div>
+
+                <div class="platform-card animate-on-scroll">
+                    <i class="fas fa-tablet-alt platform-icon tablet"></i>
+                    <h3>iPad</h3>
+                    <p>Cara menginstall dan mengkonfigurasi Safe Exam Browser di iPad untuk ujian mobile yang aman.</p>
+                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="download-btn" onclick="showTutorial('ipad')">
+                        <i class="fas fa-play"></i> Download Aplikasi
+                    </a>
+                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="download-btn" onclick="showTutorial('ipad')">
+                        <i class="fas fa-play"></i> Download Config
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Features Section -->
+    <!-- <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Mengapa Safe Exam Browser?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Keamanan Maksimal</h3>
+                    <p>Mencegah akses ke aplikasi lain dan membatasi fungsi sistem selama ujian berlangsung</p>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Monitoring Ketat</h3>
+                    <p>Memblokir screenshot, copy-paste, dan akses ke internet kecuali yang diperlukan untuk ujian</p>
+                </div>
+
+                <div class="feature-item animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Mudah Dikonfigurasi</h3>
+                    <p>Interface yang user-friendly dan panduan instalasi yang mudah diikuti untuk semua platform</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Steps Section -->
+    <section class="steps" id="steps">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Langkah-langkah Instalasi</h2>
+            
+            <div class="steps-timeline">
+                <div class="step-item animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Uninstall Software/Aplikasi</h3>
+                        <p>Jika di Device <strong>SUDAH PERNAH INSTALL</strong> maka <strong>WAJIB</strong> di unistall terlebih dahulu</p>
+                    </div>
+                </div>
+
+                <div class="step-item animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Download Safe Exam Browser</h3>
+                        <p>Download Software/aplikasi sesuai device masing-masing, download dari tombol yang sudah disediakan di bawah ini atau dari AppStore</p>
+                        
+                        <div class="step-download-buttons">
+                            <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="step-platform-btn windows-btn" onclick="downloadSEB('windows')">
+                                <i class="fab fa-windows"></i>
+                                <span>Windows</span>
+                            </a>
+                            <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="step-platform-btn mac-btn" onclick="downloadSEB('mac')">
+                                <i class="fab fa-apple"></i>
+                                <span>macOS</span>
+                            </a>
+                            <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="step-platform-btn ipad-btn" onclick="downloadSEB('ipad')">
+                                <i class="fas fa-tablet-alt"></i>
+                                <span>iPad</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Install Aplikasi</h3>
+                        <p>Jalankan file installer dan ikuti petunjuk instalasi sesuai sistem operasi sampai selesai</p>
+                    </div>
+                </div>
+
+                <div class="step-item animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Jalankan File Konfigurasi</h3>
+                        <p>Download dan Jalankan file konfig yang sudah di sediakan di bawah ini</p>
+                        <p>pastikan file download ber ekstensi <strong>.seb</strong> (PTSI25.seb) </p>
+                        
+                        <div class="step-download-buttons">
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('windows')">
+                                <i class="fab fa-windows"></i>
+                                <span>Config Windows</span>
+                            </a>
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('mac')">
+                                <i class="fab fa-apple"></i>
+                                <span>Config macOS</span>
+                            </a>
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('ipad')">
+                                <i class="fas fa-tablet-alt"></i>
+                                <span>Config iPad</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-item animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Test & Verifikasi</h3>
+                        <p>Lakukan testing untuk memastikan aplikasi berjalan dengan baik sebelum ujian</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Buttons -->
+            <div class="download-section animate-on-scroll">
+                <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem;">Download Safe Exam Browser</h3>
+                <div class="download-buttons">
+                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="platform-download-btn windows-btn" onclick="downloadSEB('windows')">
+                        <div class="platform-info">
+                            <i class="fab fa-windows platform-logo"></i>
+                            <div class="platform-text">
+                                <span class="platform-name">Windows</span>
+                                <span class="platform-desc">Windows 10/11</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-download"></i>
+                    </a>
+
+                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="platform-download-btn mac-btn" onclick="downloadSEB('mac')">
+                        <div class="platform-info">
+                            <i class="fab fa-apple platform-logo"></i>
+                            <div class="platform-text">
+                                <span class="platform-name">macOS</span>
+                                <span class="platform-desc">Intel & Apple Silicon</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-download"></i>
+                    </a>
+
+                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="platform-download-btn ipad-btn" onclick="downloadSEB('ipad')">
+                        <div class="platform-info">
+                            <i class="fas fa-tablet-alt platform-logo"></i>
+                            <div class="platform-text">
+                                <span class="platform-name">iPad</span>
+                                <span class="platform-desc">iOS 14+</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Pertanyaan Umum</h2>
+            
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Apakah Safe Exam Browser gratis?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Ya, Safe Exam Browser adalah aplikasi open-source yang dapat diunduh dan digunakan secara gratis untuk keperluan pendidikan.</p>
+                </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Bagaimana jika ada masalah saat instalasi?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Kami menyediakan panduan troubleshooting lengkap dan support untuk membantu menyelesaikan masalah instalasi yang mungkin terjadi.</p>
+                </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Apakah SEB kompatibel dengan semua browser?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Safe Exam Browser memiliki engine browser sendiri dan tidak bergantung pada browser lain. Ini memastikan keamanan dan konsistensi pengalaman ujian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tutorial Safe Exam Browser. Panduan untuk ujian CBT yang aman.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('active');
+            
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Tutorial Modal (placeholder function)
+        function showTutorial(platform) {
+            alert(`Tutorial untuk ${platform} akan segera tersedia! \n\nTerima kasih telah mengunjungi halaman kami.`);
+        }
+
+        // Download SEB function
+        function downloadSEB(platform) {
+            const downloadLinks = {
+                'windows': 'https://safeexambrowser.org/download_en.html',
+                'mac': 'https://safeexambrowser.org/download_en.html', 
+                'ipad': 'https://apps.apple.com/app/safe-exam-browser/id1348665248'
+            };
+            
+            // Show confirmation with platform-specific message
+            const messages = {
+                'windows': 'Anda akan diarahkan ke halaman download Safe Exam Browser untuk Windows.\n\nSetelah download, ikuti tutorial instalasi kami.',
+                'mac': 'Anda akan diarahkan ke halaman download Safe Exam Browser untuk macOS.\n\nPastikan Anda memilih versi yang sesuai dengan processor Mac Anda.',
+                'ipad': 'Anda akan diarahkan ke App Store untuk download Safe Exam Browser iPad.\n\nPastikan iPad Anda menjalankan iOS 14 atau lebih baru.'
+            };
+            
+            if (confirm(messages[platform])) {
+                // In a real implementation, you would redirect to the actual download
+                alert(`Download ${platform} dimulai...\n\nLink: ${downloadLinks[platform]}`);
+                // window.open(downloadLinks[platform], '_blank');
+            }
+        }
+
+        // Configuration function
+        function showConfig(platform) {
+            const configMessages = {
+                'windows': 'Panduan Konfigurasi Windows:\n\n1. Buka Safe Exam Browser\n2. Masuk ke Settings > General\n3. Atur Browser Security Level\n4. Konfigurasi Network settings\n5. Set Administrator password',
+                'mac': 'Panduan Konfigurasi macOS:\n\n1. Buka Safe Exam Browser\n2. Masuk ke Preferences > General\n3. Atur Security settings\n4. Konfigurasi Dock dan Menu Bar\n5. Set Administrator password',
+                'ipad': 'Panduan Konfigurasi iPad:\n\n1. Buka Safe Exam Browser app\n2. Tap Settings icon\n3. Configure Guided Access\n4. Set restrictions\n5. Enable Single App Mode'
+            };
+            
+            alert(configMessages[platform]);
+        }
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(102, 126, 234, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        });
+
+        // Add floating animation to hero background
+        const heroBackground = document.querySelector('.hero::before');
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
