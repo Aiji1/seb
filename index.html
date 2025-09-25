@@ -663,7 +663,7 @@
             <div class="hero-content">
                 <h1>Tutorial Install SEB</h1>
                 <p>Panduan lengkap instalasi dan penggunaan Safe Exam Browser untuk ujian CBT yang aman dan terpercaya</p>
-                <a href="#steps" class="cta-button">
+                <a href="#platforms" class="cta-button">
                     <i class="fas fa-download"></i> Download file nya di bawah
                 </a>
             </div>
@@ -858,12 +858,21 @@
             window.open(downloadLinks[platform], '_blank');
         }
 
-        // Download Config function - Same as downloadSEB, opens in new tab
+        // Download Config function - Direct download from your hosting
         function downloadConfig(platform) {
-            const configLink = 'https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ';
+            // Direct link to your hosted file
+            const configUrl = 'https://aione.my.id/files/PTS1-25.seb'; // Ganti dengan URL hosting Anda
             
-            // Directly open in new tab without confirmation
-            window.open(configLink, '_blank');
+            // Create a temporary link element for direct download
+            const link = document.createElement('a');
+            link.href = configUrl;
+            link.download = 'PTS1-25.seb'; // Force filename and extension
+            link.style.display = 'none';
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Configuration function - Kept for backward compatibility but now opens new tab
