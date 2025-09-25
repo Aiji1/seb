@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEB-SMAIA7 - Panduan Lengkap CBT</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -652,7 +659,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -668,18 +675,15 @@
     <!-- Platforms Section -->
     <!-- <section class="platforms" id="platforms">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Pilih Device Anda</h2>
+            <h2 class="section-title animate-on-scroll">Pilih Platform Anda</h2>
             
             <div class="platform-grid">
                 <div class="platform-card animate-on-scroll">
                     <i class="fab fa-windows platform-icon windows"></i>
                     <h3>Windows</h3>
-                    <p>Panduan instalasi Safe Exam Browser untuk Windows. Kompatibel dengan semua versi desktop Windows modern.</p>
-                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="download-btn" onclick="showTutorial('windows')">
-                        <i class="fas fa-play"></i> Download Software
-                    </a>
-                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="download-btn" onclick="showTutorial('windows')">
-                        <i class="fas fa-play"></i> Download Config
+                    <p>Panduan instalasi Safe Exam Browser untuk Windows 10 dan 11. Kompatibel dengan semua versi desktop Windows modern.</p>
+                    <a href="#" class="download-btn" onclick="showTutorial('windows'); return false;">
+                        <i class="fas fa-play"></i> Lihat Tutorial
                     </a>
                 </div>
 
@@ -687,11 +691,8 @@
                     <i class="fab fa-apple platform-icon apple"></i>
                     <h3>MacBook</h3>
                     <p>Petunjuk lengkap untuk menginstall Safe Exam Browser di macOS. Mendukung Intel dan Apple Silicon (M1/M2).</p>
-                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="download-btn" onclick="showTutorial('mac')">
-                        <i class="fas fa-play"></i> Download Aplikasi
-                    </a>
-                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="download-btn" onclick="showTutorial('mac')">
-                        <i class="fas fa-play"></i> Download Config
+                    <a href="#" class="download-btn" onclick="showTutorial('mac'); return false;">
+                        <i class="fas fa-play"></i> Lihat Tutorial
                     </a>
                 </div>
 
@@ -699,11 +700,8 @@
                     <i class="fas fa-tablet-alt platform-icon tablet"></i>
                     <h3>iPad</h3>
                     <p>Cara menginstall dan mengkonfigurasi Safe Exam Browser di iPad untuk ujian mobile yang aman.</p>
-                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="download-btn" onclick="showTutorial('ipad')">
-                        <i class="fas fa-play"></i> Download Aplikasi
-                    </a>
-                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="download-btn" onclick="showTutorial('ipad')">
-                        <i class="fas fa-play"></i> Download Config
+                    <a href="#" class="download-btn" onclick="showTutorial('ipad'); return false;">
+                        <i class="fas fa-play"></i> Lihat Tutorial
                     </a>
                 </div>
             </div>
@@ -974,9 +972,13 @@
             };
             
             if (confirm(messages[platform])) {
-                // In a real implementation, you would redirect to the actual download
-                alert(`Download ${platform} dimulai...\n\nLink: ${downloadLinks[platform]}`);
-                // window.open(downloadLinks[platform], '_blank');
+                // Open download link in new tab
+                window.open(downloadLinks[platform], '_blank', 'noopener,noreferrer');
+                
+                // Optional: Show success message
+                setTimeout(() => {
+                    alert(`Tab baru telah dibuka untuk download ${platform.toUpperCase()}!\n\nSilakan lanjutkan proses download di tab baru.`);
+                }, 500);
             }
         }
 
