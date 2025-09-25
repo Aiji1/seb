@@ -659,7 +659,7 @@
         </nav>
     </header>
 
-     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -762,15 +762,15 @@
                         <p>Download Software/aplikasi sesuai device masing-masing, download dari tombol yang sudah disediakan di bawah ini atau dari AppStore</p>
                         
                         <div class="step-download-buttons">
-                            <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="step-platform-btn windows-btn" onclick="downloadSEB('windows')">
+                            <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="step-platform-btn windows-btn" onclick="downloadSEB('windows'); return false;">
                                 <i class="fab fa-windows"></i>
                                 <span>Windows</span>
                             </a>
-                            <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="step-platform-btn mac-btn" onclick="downloadSEB('mac')">
+                            <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="step-platform-btn mac-btn" onclick="downloadSEB('mac'); return false;">
                                 <i class="fab fa-apple"></i>
                                 <span>macOS</span>
                             </a>
-                            <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="step-platform-btn ipad-btn" onclick="downloadSEB('ipad')">
+                            <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="step-platform-btn ipad-btn" onclick="downloadSEB('ipad'); return false;">
                                 <i class="fas fa-tablet-alt"></i>
                                 <span>iPad</span>
                             </a>
@@ -794,15 +794,15 @@
                         <p>pastikan file download ber ekstensi <strong>.seb</strong> (PTSI25.seb) </p>
                         
                         <div class="step-download-buttons">
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('windows')">
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('windows'); return false;">
                                 <i class="fab fa-windows"></i>
                                 <span>Config Windows</span>
                             </a>
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('mac')">
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('mac'); return false;">
                                 <i class="fab fa-apple"></i>
                                 <span>Config macOS</span>
                             </a>
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('ipad')">
+                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('ipad'); return false;">
                                 <i class="fas fa-tablet-alt"></i>
                                 <span>Config iPad</span>
                             </a>
@@ -863,35 +863,35 @@
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Pertanyaan Umum</h2>
+            <h2 class="section-title animate-on-scroll">Perhatian!!!</h2>
             
             <div class="faq-item animate-on-scroll">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Apakah Safe Exam Browser gratis?
+                    Jangan Lupa Membaca Doa Sebelum Memulai Ujian!
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="faq-answer">
-                    <p>Ya, Safe Exam Browser adalah aplikasi open-source yang dapat diunduh dan digunakan secara gratis untuk keperluan pendidikan.</p>
+                    <p>Jangan Lupa membaca basmalah dan niat yang lurus</p>
                 </div>
             </div>
 
             <div class="faq-item animate-on-scroll">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Bagaimana jika ada masalah saat instalasi?
+                    Jangan tergiur nilai bagus tapi hasil mencontek!
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="faq-answer">
-                    <p>Kami menyediakan panduan troubleshooting lengkap dan support untuk membantu menyelesaikan masalah instalasi yang mungkin terjadi.</p>
+                    <p>Lebih baik nilai bagus hasil mengerjakan sendiri daripada nilai jelek tapi mencontek!</p>
                 </div>
             </div>
 
             <div class="faq-item animate-on-scroll">
                 <button class="faq-question" onclick="toggleFAQ(this)">
-                    Apakah SEB kompatibel dengan semua browser?
+                    Semoga Allah memudahkan urusan kamu yang sudah jujur
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="faq-answer">
-                    <p>Safe Exam Browser memiliki engine browser sendiri dan tidak bergantung pada browser lain. Ini memastikan keamanan dan konsistensi pengalaman ujian.</p>
+                    <p>Amiiin -_- </p>
                 </div>
             </div>
         </div>
@@ -900,7 +900,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Tutorial Safe Exam Browser. Panduan untuk ujian CBT yang aman.</p>
+            <p>aione.my.id &copy; 2025 Tutorial Safe Exam Browser. Panduan untuk ujian CBT yang aman.</p>
         </div>
     </footer>
 
@@ -964,22 +964,8 @@
                 'ipad': 'https://apps.apple.com/app/safe-exam-browser/id1348665248'
             };
             
-            // Show confirmation with platform-specific message
-            const messages = {
-                'windows': 'Anda akan diarahkan ke halaman download Safe Exam Browser untuk Windows.\n\nSetelah download, ikuti tutorial instalasi kami.',
-                'mac': 'Anda akan diarahkan ke halaman download Safe Exam Browser untuk macOS.\n\nPastikan Anda memilih versi yang sesuai dengan processor Mac Anda.',
-                'ipad': 'Anda akan diarahkan ke App Store untuk download Safe Exam Browser iPad.\n\nPastikan iPad Anda menjalankan iOS 14 atau lebih baru.'
-            };
-            
-            if (confirm(messages[platform])) {
-                // Open download link in new tab
-                window.open(downloadLinks[platform], '_blank', 'noopener,noreferrer');
-                
-                // Optional: Show success message
-                setTimeout(() => {
-                    alert(`Tab baru telah dibuka untuk download ${platform.toUpperCase()}!\n\nSilakan lanjutkan proses download di tab baru.`);
-                }, 500);
-            }
+            // Directly open in new tab without confirmation
+            window.open(downloadLinks[platform], '_blank');
         }
 
         // Configuration function
