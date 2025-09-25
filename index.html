@@ -670,75 +670,6 @@
         </div>
     </section>
 
-    <!-- Platforms Section -->
-    <!-- <section class="platforms" id="platforms">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Pilih Platform Anda</h2>
-            
-            <div class="platform-grid">
-                <div class="platform-card animate-on-scroll">
-                    <i class="fab fa-windows platform-icon windows"></i>
-                    <h3>Windows</h3>
-                    <p>Panduan instalasi Safe Exam Browser untuk Windows 10 dan 11. Kompatibel dengan semua versi desktop Windows modern.</p>
-                    <a href="#" class="download-btn" onclick="showTutorial('windows'); return false;">
-                        <i class="fas fa-play"></i> Lihat Tutorial
-                    </a>
-                </div>
-
-                <div class="platform-card animate-on-scroll">
-                    <i class="fab fa-apple platform-icon apple"></i>
-                    <h3>MacBook</h3>
-                    <p>Petunjuk lengkap untuk menginstall Safe Exam Browser di macOS. Mendukung Intel dan Apple Silicon (M1/M2).</p>
-                    <a href="#" class="download-btn" onclick="showTutorial('mac'); return false;">
-                        <i class="fas fa-play"></i> Lihat Tutorial
-                    </a>
-                </div>
-
-                <div class="platform-card animate-on-scroll">
-                    <i class="fas fa-tablet-alt platform-icon tablet"></i>
-                    <h3>iPad</h3>
-                    <p>Cara menginstall dan mengkonfigurasi Safe Exam Browser di iPad untuk ujian mobile yang aman.</p>
-                    <a href="#" class="download-btn" onclick="showTutorial('ipad'); return false;">
-                        <i class="fas fa-play"></i> Lihat Tutorial
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Features Section -->
-    <!-- <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Mengapa Safe Exam Browser?</h2>
-            
-            <div class="features-grid">
-                <div class="feature-item animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Keamanan Maksimal</h3>
-                    <p>Mencegah akses ke aplikasi lain dan membatasi fungsi sistem selama ujian berlangsung</p>
-                </div>
-
-                <div class="feature-item animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Monitoring Ketat</h3>
-                    <p>Memblokir screenshot, copy-paste, dan akses ke internet kecuali yang diperlukan untuk ujian</p>
-                </div>
-
-                <div class="feature-item animate-on-scroll">
-                    <div class="feature-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <h3>Mudah Dikonfigurasi</h3>
-                    <p>Interface yang user-friendly dan panduan instalasi yang mudah diikuti untuk semua platform</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Steps Section -->
     <section class="steps" id="steps">
         <div class="container">
@@ -785,22 +716,22 @@
                 </div>
 
                 <div class="step-item animate-on-scroll">
-                    <div class="step-number">3</div>
+                    <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>Jalankan File Konfigurasi</h3>
                         <p>Download dan Jalankan file konfig yang sudah di sediakan di bawah ini</p>
                         <p>pastikan file download ber ekstensi <strong>.seb</strong> (PTS1-25.seb) </p>
                         
                         <div class="step-download-buttons">
-                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('windows'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="downloadConfig('windows'); return false;">
                                 <i class="fab fa-windows"></i>
                                 <span>Config Windows</span>
                             </a>
-                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('mac'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="downloadConfig('mac'); return false;">
                                 <i class="fab fa-apple"></i>
                                 <span>Config macOS</span>
                             </a>
-                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('ipad'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="downloadConfig('ipad'); return false;">
                                 <i class="fas fa-tablet-alt"></i>
                                 <span>Config iPad</span>
                             </a>
@@ -809,52 +740,13 @@
                 </div>
 
                 <div class="step-item animate-on-scroll">
-                    <div class="step-number">4</div>
+                    <div class="step-number">5</div>
                     <div class="step-content">
                         <h3>Test & Verifikasi</h3>
                         <p>Lakukan testing untuk memastikan aplikasi berjalan dengan baik sebelum ujian</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Download Buttons -->
-            <!-- <div class="download-section animate-on-scroll">
-                <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem;">Download Safe Exam Browser</h3>
-                <div class="download-buttons">
-                    <a href="https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download" class="platform-download-btn windows-btn" onclick="downloadSEB('windows')">
-                        <div class="platform-info">
-                            <i class="fab fa-windows platform-logo"></i>
-                            <div class="platform-text">
-                                <span class="platform-name">Windows</span>
-                                <span class="platform-desc">Windows 10/11</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-download"></i>
-                    </a>
-
-                    <a href="https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download" class="platform-download-btn mac-btn" onclick="downloadSEB('mac')">
-                        <div class="platform-info">
-                            <i class="fab fa-apple platform-logo"></i>
-                            <div class="platform-text">
-                                <span class="platform-name">macOS</span>
-                                <span class="platform-desc">Intel & Apple Silicon</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-download"></i>
-                    </a>
-
-                    <a href="https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8" class="platform-download-btn ipad-btn" onclick="downloadSEB('ipad')">
-                        <div class="platform-info">
-                            <i class="fas fa-tablet-alt platform-logo"></i>
-                            <div class="platform-text">
-                                <span class="platform-name">iPad</span>
-                                <span class="platform-desc">iOS 14+</span>
-                            </div>
-                        </div>
-                        <i class="fas fa-download"></i>
-                    </a>
-                </div>
-            </div> -->
         </div>
     </section>
 
@@ -966,15 +858,18 @@
             window.open(downloadLinks[platform], '_blank');
         }
 
-        // Configuration function
-        function showConfig(platform) {
-            const configMessages = {
-                'windows': 'Panduan Konfigurasi Windows:\n\n1. Download dan klik 2x file config ini untuk memulai ujian',
-                'mac': 'Panduan Konfigurasi macOS:\n\n1. Download dan klik 2x file ini untuk memulai Ujian',
-                'ipad': 'Panduan Konfigurasi iPad:\n\n1. Download File ini dan klik untuk memulai ujian'
-            };
+        // Download Config function - Same as downloadSEB, opens in new tab
+        function downloadConfig(platform) {
+            const configLink = 'https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ';
             
-            alert(configMessages[platform]);
+            // Directly open in new tab without confirmation
+            window.open(configLink, '_blank');
+        }
+
+        // Configuration function - Kept for backward compatibility but now opens new tab
+        function showConfig(platform) {
+            // Use the same function as downloadConfig
+            downloadConfig(platform);
         }
 
         // Header background on scroll
