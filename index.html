@@ -791,18 +791,18 @@
                     <div class="step-content">
                         <h3>Jalankan File Konfigurasi</h3>
                         <p>Download dan Jalankan file konfig yang sudah di sediakan di bawah ini</p>
-                        <p>pastikan file download ber ekstensi <strong>.seb</strong> (PTSI25.seb) </p>
+                        <p>pastikan file download ber ekstensi <strong>.seb</strong> (PTS1-25.seb) </p>
                         
                         <div class="step-download-buttons">
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('windows'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('windows'); return false;">
                                 <i class="fab fa-windows"></i>
                                 <span>Config Windows</span>
                             </a>
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('mac'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('mac'); return false;">
                                 <i class="fab fa-apple"></i>
                                 <span>Config macOS</span>
                             </a>
-                            <a href="#" class="step-platform-btn config-btn" onclick="showConfig('ipad'); return false;">
+                            <a href="https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ" class="step-platform-btn config-btn" onclick="showConfig('ipad'); return false;">
                                 <i class="fas fa-tablet-alt"></i>
                                 <span>Config iPad</span>
                             </a>
@@ -971,9 +971,9 @@
         // Configuration function
         function showConfig(platform) {
             const configMessages = {
-                'windows': 'Panduan Konfigurasi Windows:\n\n1. Buka Safe Exam Browser\n2. Masuk ke Settings > General\n3. Atur Browser Security Level\n4. Konfigurasi Network settings\n5. Set Administrator password',
-                'mac': 'Panduan Konfigurasi macOS:\n\n1. Buka Safe Exam Browser\n2. Masuk ke Preferences > General\n3. Atur Security settings\n4. Konfigurasi Dock dan Menu Bar\n5. Set Administrator password',
-                'ipad': 'Panduan Konfigurasi iPad:\n\n1. Buka Safe Exam Browser app\n2. Tap Settings icon\n3. Configure Guided Access\n4. Set restrictions\n5. Enable Single App Mode'
+                'windows': 'Panduan Konfigurasi Windows:\n\n1. Download dan klik 2x file config ini untuk memulai ujian',
+                'mac': 'Panduan Konfigurasi macOS:\n\n1. Download dan klik 2x file ini untuk memulai Ujian',
+                'ipad': 'Panduan Konfigurasi iPad:\n\n1. Download File ini dan klik untuk memulai ujian'
             };
             
             alert(configMessages[platform]);
