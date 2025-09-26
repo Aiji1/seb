@@ -921,92 +921,109 @@
             }
         }
 
-        // Function to attempt direct SEB launch
-        function attemptDirectLaunch() {
+        // Direct launch function - most aggressive approach
+        function directLaunchSEB() {
             showDownloadStatus('Mencoba membuka Safe Exam Browser...');
             
-            // Method 1: Try custom protocol
+            // Method 1: Direct window.location redirect
             try {
-                window.location.href = 'seb://aione.my.id/files/ASTS1-25.seb';
+                window.location.href = CONFIG_URLS.main;
                 setTimeout(() => {
-                    showDownloadStatus('SEB berhasil diluncurkan!');
+                    showDownloadStatus('File konfigurasi dibuka! SEB akan terbuka jika ter-associate.');
                 }, 1000);
+                return;
             } catch (error) {
-                console.log('Protocol handler failed, trying alternative methods');
-                fallbackLaunchMethods();
+                console.log('Direct redirect failed');
             }
+            
+            // Method 2: Force window.open with specific parameters
+            try {
+                const popup = window.open(
+                    CONFIG_URLS.main,
+                    '_blank',
+                    'noopener,noreferrer'
+                );
+                
+                setTimeout(() => {
+                    if (popup && !popup.closed) {
+                        showDownloadStatus('File berhasil dibuka di tab baru!');
+                    } else {
+                        showDownloadStatus('Browser memblokir popup. Coba "Buka di Tab Baru"');
+                    }
+                }, 1000);
+                return;
+            } catch (error) {
+                console.log('Window.open failed');
+            }
+            
+            // Method 3: Create invisible iframe
+            try {
+                const iframe = document.createElement('iframe');
+                iframe.src = CONFIG_URLS.main;
+                iframe.style.display = 'none';
+                iframe.width = '0';
+                iframe.height = '0';
+                
+                iframe.onload = () => {
+                    showDownloadStatus('File konfigurasi dimuat! SEB akan terbuka.');
+                    setTimeout(() => {
+                        document.body.removeChild(iframe);
+                    }, 5000);
+                };
+                
+                iframe.onerror = () => {
+                    showDownloadStatus('Gagal memuat file. Coba tombol "Buka di Tab Baru"', true);
+                    document.body.removeChild(iframe);
+                };
+                
+                document.body.appendChild(iframe);
+                return;
+            } catch (error) {
+                console.log('Iframe method failed');
+            }
+            
+            // Method 4: Force download as fallback
+            forceFileDownload();
         }
-
-        // Fallback methods if direct launch fails
-        function fallbackLaunchMethods() {
-            // Method 2: Try with different MIME type
+        
+        // Force download with specific headers
+        function forceFileDownload() {
             try {
                 const link = document.createElement('a');
                 link.href = CONFIG_URLS.main;
-                link.setAttribute('type', 'application/seb-configuration');
                 link.style.display = 'none';
+                
+                // Remove download attribute to let browser handle naturally
+                // This often triggers file association
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 
-                setTimeout(() => {
-                    showDownloadStatus('File konfigurasi dibuka. Jika SEB tidak terbuka, double-click file yang didownload.');
-                }, 1000);
-                
+                showDownloadStatus('File konfigurasi akan dibuka atau didownload...');
             } catch (error) {
-                console.log('MIME type method failed');
-                showDownloadStatus('Tidak dapat membuka langsung. File akan didownload.', true);
-                setTimeout(() => {
-                    downloadConfig();
-                }, 1000);
+                showDownloadStatus('Gagal membuka file. Silakan akses manual.', true);
             }
         }
-
-        // Enhanced launch function with multiple attempts
-        function launchSEBConfig() {
-            // Check if user agent supports protocol handlers
-            if (typeof navigator.registerProtocolHandler === 'function') {
-                try {
-                    // Attempt to register protocol handler
-                    navigator.registerProtocolHandler(
-                        'seb',
-                        window.location.origin + '/launch.html?url=%s',
-                        'Safe Exam Browser'
-                    );
-                } catch (e) {
-                    console.log('Protocol registration failed');
-                }
+        
+        // Enhanced launch with user agent detection
+        function smartLaunchSEB() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isWindows = userAgent.indexOf('windows') > -1;
+            const isChrome = userAgent.indexOf('chrome') > -1;
+            const isFirefox = userAgent.indexOf('firefox') > -1;
+            
+            if (isWindows && isChrome) {
+                // Windows + Chrome: Direct redirect works best
+                window.location.href = CONFIG_URLS.main;
+            } else if (isWindows && isFirefox) {
+                // Firefox: Window.open works better
+                window.open(CONFIG_URLS.main, '_blank');
+            } else {
+                // Other platforms: Try iframe first
+                directLaunchSEB();
             }
             
-            attemptDirectLaunch();
-        }
-
-        // Check if SEB is installed (heuristic)
-        function checkSEBInstalled() {
-            return new Promise((resolve) => {
-                const timeout = setTimeout(() => {
-                    resolve(false);
-                }, 2000);
-                
-                // Try to detect if SEB protocol handler exists
-                const testFrame = document.createElement('iframe');
-                testFrame.style.display = 'none';
-                testFrame.src = 'seb://test';
-                
-                testFrame.onload = () => {
-                    clearTimeout(timeout);
-                    document.body.removeChild(testFrame);
-                    resolve(true);
-                };
-                
-                testFrame.onerror = () => {
-                    clearTimeout(timeout);
-                    document.body.removeChild(testFrame);
-                    resolve(false);
-                };
-                
-                document.body.appendChild(testFrame);
-            });
+            showDownloadStatus('Mencoba membuka file sesuai browser dan OS Anda...');
         }
 
         // Smooth scrolling for navigation links
