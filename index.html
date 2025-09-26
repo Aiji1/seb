@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEB-SMAIA7 - Panduan Lengkap CBT</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -75,92 +72,19 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Platforms Section */
-        .platforms {
+        /* Steps Section */
+        .steps {
             padding: 80px 0;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            min-height: 100vh;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #333;
+            color: white;
             position: relative;
         }
 
@@ -169,133 +93,9 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: rgba(255,255,255,0.8);
             margin: 20px auto;
             border-radius: 2px;
-        }
-
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .platform-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .platform-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .platform-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .platform-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .platform-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .windows { color: #0078d4; }
-        .apple { color: #007aff; }
-        .tablet { color: #ff6b6b; }
-
-        .platform-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .platform-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .download-btn:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: #f8f9fa;
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1rem;
-            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
-        }
-
-        /* Steps Section */
-        .steps {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
         }
 
         .steps-timeline {
@@ -340,188 +140,63 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Step Download Buttons */
-        .step-download-buttons {
+        /* Buttons */
+        .button-container {
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
-        .step-platform-btn {
+        .btn {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.2rem;
-            background: white;
-            color: #333;
+            padding: 1rem 1.5rem;
             text-decoration: none;
             border-radius: 10px;
-            font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s ease;
             border: 2px solid transparent;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
-            justify-content: center;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
-        .step-platform-btn:hover {
+        .btn-primary {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .btn-primary:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(40,167,69,0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #333;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .step-platform-btn.windows-btn:hover {
-            border-color: #0078d4;
-            color: #0078d4;
-            box-shadow: 0 8px 25px rgba(0,120,212,0.3);
-        }
-
-        .step-platform-btn.mac-btn:hover {
-            border-color: #007aff;
-            color: #007aff;
-            box-shadow: 0 8px 25px rgba(0,122,255,0.3);
-        }
-
-        .step-platform-btn.ipad-btn:hover {
-            border-color: #ff6b6b;
-            color: #ff6b6b;
-            box-shadow: 0 8px 25px rgba(255,107,107,0.3);
-        }
-
-        .step-platform-btn.config-btn:hover {
-            border-color: #28a745;
-            color: #28a745;
-            box-shadow: 0 8px 25px rgba(40,167,69,0.3);
-        }
-
-        .step-platform-btn i {
-            font-size: 1.2rem;
-        }
-        .download-section {
-            margin-top: 4rem;
-            padding: 3rem 2rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .download-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .platform-download-btn {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 2rem;
-            background: white;
-            color: #333;
-            text-decoration: none;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .platform-download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .platform-download-btn:hover::before {
-            left: 100%;
-        }
-
-        .platform-download-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .windows-btn:hover {
-            border-color: #0078d4;
-            box-shadow: 0 15px 40px rgba(0,120,212,0.3);
-        }
-
-        .mac-btn:hover {
-            border-color: #007aff;
-            box-shadow: 0 15px 40px rgba(0,122,255,0.3);
-        }
-
-        .ipad-btn:hover {
-            border-color: #ff6b6b;
-            box-shadow: 0 15px 40px rgba(255,107,107,0.3);
-        }
-
-        .platform-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .platform-logo {
-            font-size: 2.5rem;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .windows-btn .platform-logo {
-            color: #0078d4;
-            background: rgba(0,120,212,0.1);
-        }
-
-        .mac-btn .platform-logo {
-            color: #007aff;
-            background: rgba(0,122,255,0.1);
-        }
-
-        .ipad-btn .platform-logo {
-            color: #ff6b6b;
-            background: rgba(255,107,107,0.1);
-        }
-
-        .platform-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .platform-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.2rem;
-        }
-
-        .platform-desc {
+        .info-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
             font-size: 0.9rem;
-            color: #666;
-            opacity: 0.8;
+            border-left: 4px solid rgba(255,255,255,0.8);
         }
 
-        .platform-download-btn .fa-download {
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .platform-download-btn:hover .fa-download {
-            transform: translateY(2px);
-        }
+        /* FAQ Section */
         .faq {
             padding: 80px 0;
             background: #f8f9fa;
@@ -566,8 +241,8 @@
             padding: 1.5rem;
         }
 
-        /* Download Status */
-        .download-status {
+        /* Status Notification */
+        .status-notification {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -582,13 +257,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            max-width: 300px;
         }
 
-        .download-status.show {
+        .status-notification.show {
             transform: translateX(0);
         }
 
-        .download-status.error {
+        .status-notification.error {
             background: #dc3545;
         }
 
@@ -606,61 +282,25 @@
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .platform-grid {
-                grid-template-columns: 1fr;
-            }
-
             .step-item {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .download-buttons {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
             }
 
-            .platform-download-btn {
-                padding: 1.2rem 1.5rem;
-            }
-
-            .platform-logo {
-                font-size: 2rem;
-                width: 50px;
-                height: 50px;
-            }
-
-            .step-download-buttons {
+            .button-container {
                 flex-direction: column;
-                gap: 0.8rem;
             }
 
-            .step-platform-btn {
-                min-width: auto;
-                padding: 0.7rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .download-status {
-                right: 10px;
-                left: 10px;
-                transform: translateY(100px);
-            }
-
-            .download-status.show {
-                transform: translateY(0);
+            .btn {
+                justify-content: center;
             }
         }
 
-        /* Scroll animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -689,19 +329,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-   <!-- <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Tutorial Install SEB</h1>
-                <p>Panduan lengkap instalasi dan penggunaan Safe Exam Browser untuk ujian CBT yang aman dan terpercaya</p>
-                <a href="#platforms" class="cta-button">
-                    <i class="fas fa-download"></i> Download file nya di bawah
-                </a>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Steps Section -->
     <section class="steps" id="steps">
         <div class="container">
@@ -712,7 +339,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>Uninstall Software/Aplikasi</h3>
-                        <p>Jika di Device <strong>SUDAH PERNAH INSTALL</strong> maka <strong>WAJIB</strong> di unistall terlebih dahulu</p>
+                        <p>Jika di Device <strong>SUDAH PERNAH INSTALL</strong> maka <strong>WAJIB</strong> di uninstall terlebih dahulu</p>
                     </div>
                 </div>
 
@@ -722,16 +349,16 @@
                         <h3>Download Safe Exam Browser</h3>
                         <p>Download Software/aplikasi sesuai device masing-masing, download dari tombol yang sudah disediakan di bawah ini atau dari AppStore</p>
                         
-                        <div class="step-download-buttons">
-                            <a href="#" class="step-platform-btn windows-btn" onclick="downloadSEB('windows'); return false;">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-secondary" onclick="downloadSEB('windows'); return false;">
                                 <i class="fab fa-windows"></i>
                                 <span>Windows</span>
                             </a>
-                            <a href="#" class="step-platform-btn mac-btn" onclick="downloadSEB('mac'); return false;">
+                            <a href="#" class="btn btn-secondary" onclick="downloadSEB('mac'); return false;">
                                 <i class="fab fa-apple"></i>
                                 <span>macOS</span>
                             </a>
-                            <a href="#" class="step-platform-btn ipad-btn" onclick="downloadSEB('ipad'); return false;">
+                            <a href="#" class="btn btn-secondary" onclick="downloadSEB('ipad'); return false;">
                                 <i class="fas fa-tablet-alt"></i>
                                 <span>iPad</span>
                             </a>
@@ -751,25 +378,24 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>Jalankan File Konfigurasi</h3>
-                        <p>Klik tombol di bawah untuk langsung menjalankan konfigurasi <strong>ASTS1-25.seb</strong></p>
-                        <p>File akan langsung membuka Safe Exam Browser dengan konfigurasi yang tepat</p>
+                        <p>Pilih salah satu cara di bawah untuk menjalankan konfigurasi <strong>ASTS1-25.seb</strong></p>
                         
-                        <div class="step-download-buttons">
-                            <a href="https://aione.my.id/files/ASTS1-25.seb" class="step-platform-btn config-btn" download="ASTS1-25.seb">
+                        <div class="button-container">
+                            <a href="#" class="btn btn-primary" onclick="launchSEBDirectly(); return false;">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Jalankan SEB Langsung</span>
+                            </a>
+                            <a href="https://aione.my.id/files/ASTS1-25.seb" class="btn btn-secondary" download="ASTS1-25.seb">
                                 <i class="fas fa-download"></i>
                                 <span>Download ASTS1-25.seb</span>
                             </a>
                         </div>
-                        <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px; font-size: 0.9rem;">
+
+                        <div class="info-box">
                             <i class="fas fa-info-circle"></i>
-                            <strong>Cara Menjalankan:</strong><br>
-                            1. Klik tombol download di atas<br>
-                            2. Setelah file terdownload, <strong>double-click</strong> file ASTS1-25.seb<br>
-                            3. Safe Exam Browser akan otomatis terbuka dengan konfigurasi yang tepat
-                        </div>
-                        <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px; font-size: 0.9rem;">
-                            <i class="fas fa-info-circle"></i>
-                            <strong>Tips:</strong> Tombol pertama akan langsung menjalankan SEB, tombol kedua untuk download manual jika diperlukan
+                            <strong>Pilihan:</strong><br>
+                            • <strong>Jalankan SEB Langsung</strong> - Mencoba membuka Safe Exam Browser langsung dengan konfigurasi<br>
+                            • <strong>Download</strong> - Download file untuk dijalankan manual (double-click file .seb)
                         </div>
                     </div>
                 </div>
@@ -822,10 +448,10 @@
         </div>
     </section>
 
-    <!-- Download Status Notification -->
-    <div class="download-status" id="downloadStatus">
-        <i class="fas fa-download"></i>
-        <span id="downloadStatusText">Download dimulai...</span>
+    <!-- Status Notification -->
+    <div class="status-notification" id="statusNotification">
+        <i class="fas fa-info-circle"></i>
+        <span id="statusText">Status...</span>
     </div>
 
     <!-- Footer -->
@@ -836,38 +462,103 @@
     </footer>
 
     <script>
-        // Configuration URLs - ganti dengan URL hosting Anda
-        const CONFIG_URLS = {
-            main: 'https://aione.my.id/files/ASTS1-25.seb',
-            backup: 'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID' // backup jika diperlukan
-        };
-
-        // SEB Download URLs
+        // Configuration URLs
+        const CONFIG_FILE_URL = 'https://aione.my.id/files/ASTS1-25.seb';
+        
         const SEB_DOWNLOAD_LINKS = {
             'windows': 'https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download',
             'mac': 'https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download', 
             'ipad': 'https://itunes.apple.com/app/safeexambrowser/id1155002964?mt=8'
         };
 
-        // Show download status notification
-        function showDownloadStatus(message, isError = false) {
-            const status = document.getElementById('downloadStatus');
-            const statusText = document.getElementById('downloadStatusText');
+        // Show status notification
+        function showStatus(message, isError = false) {
+            const notification = document.getElementById('statusNotification');
+            const statusText = document.getElementById('statusText');
             
             statusText.textContent = message;
             
             if (isError) {
-                status.classList.add('error');
+                notification.classList.add('error');
             } else {
-                status.classList.remove('error');
+                notification.classList.remove('error');
             }
             
-            status.classList.add('show');
+            notification.classList.add('show');
             
-            // Hide after 3 seconds
             setTimeout(() => {
-                status.classList.remove('show');
-            }, 3000);
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        // Direct launch SEB function
+        function launchSEBDirectly() {
+            showStatus('Mencoba membuka Safe Exam Browser...');
+            
+            // Method 1: Direct window location
+            try {
+                window.location.href = CONFIG_FILE_URL;
+                setTimeout(() => {
+                    showStatus('File konfigurasi dibuka! SEB akan terbuka jika ter-associate.');
+                }, 1000);
+                return;
+            } catch (error) {
+                console.log('Method 1 failed:', error);
+            }
+            
+            // Method 2: Window.open
+            try {
+                const newWindow = window.open(CONFIG_FILE_URL, '_blank');
+                if (newWindow) {
+                    setTimeout(() => {
+                        showStatus('File dibuka di tab baru. SEB akan terbuka otomatis.');
+                    }, 1000);
+                } else {
+                    throw new Error('Popup blocked');
+                }
+                return;
+            } catch (error) {
+                console.log('Method 2 failed:', error);
+            }
+            
+            // Method 3: Hidden iframe
+            try {
+                const iframe = document.createElement('iframe');
+                iframe.src = CONFIG_FILE_URL;
+                iframe.style.display = 'none';
+                iframe.style.width = '0';
+                iframe.style.height = '0';
+                
+                iframe.onload = () => {
+                    showStatus('Konfigurasi dimuat! SEB akan terbuka.');
+                    setTimeout(() => {
+                        document.body.removeChild(iframe);
+                    }, 3000);
+                };
+                
+                iframe.onerror = () => {
+                    showStatus('Gagal memuat konfigurasi. Coba download manual.', true);
+                    document.body.removeChild(iframe);
+                };
+                
+                document.body.appendChild(iframe);
+                return;
+            } catch (error) {
+                console.log('Method 3 failed:', error);
+            }
+            
+            // Fallback: Force download
+            showStatus('Mencoba download otomatis sebagai fallback...');
+            setTimeout(() => {
+                const link = document.createElement('a');
+                link.href = CONFIG_FILE_URL;
+                link.download = 'ASTS1-25.seb';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showStatus('File didownload. Double-click untuk membuka SEB.');
+            }, 1000);
         }
 
         // Download SEB function
@@ -878,155 +569,25 @@
                 'ipad': 'iPad'
             };
             
-            showDownloadStatus(`Memulai download SEB untuk ${platformNames[platform]}...`);
-            
-            // Open download link in new tab
+            showStatus(`Memulai download SEB untuk ${platformNames[platform]}...`);
             window.open(SEB_DOWNLOAD_LINKS[platform], '_blank');
         }
 
-        // Download Config function - Updated untuk direct launch
-        function downloadConfig() {
-            showDownloadStatus('Memulai download file konfigurasi ASTS1-25.seb...');
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
             
-            try {
-                // Create a temporary link element for direct download
-                const link = document.createElement('a');
-                link.href = CONFIG_URLS.main;
-                link.download = 'ASTS1-25.seb';
-                link.style.display = 'none';
-                
-                // Add event listeners untuk tracking download
-                link.addEventListener('click', () => {
-                    console.log('Download config file clicked');
-                });
-                
-                // Append to body, click, and remove
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Update status after short delay
-                setTimeout(() => {
-                    showDownloadStatus('File ASTS1-25.seb berhasil didownload!');
-                }, 1000);
-                
-            } catch (error) {
-                console.error('Error downloading config file:', error);
-                showDownloadStatus('Gagal mendownload file konfigurasi. Silakan coba lagi.', true);
-                
-                // Fallback - redirect to backup URL
-                setTimeout(() => {
-                    window.open('https://drive.google.com/drive/folders/1C2PTW8baEkbbXAMXHfKn0rJ-DhQ3vLMJ', '_blank');
-                }, 2000);
-            }
-        }
-
-        // Direct launch function - most aggressive approach
-        function directLaunchSEB() {
-            showDownloadStatus('Mencoba membuka Safe Exam Browser...');
+            answer.classList.toggle('active');
             
-            // Method 1: Direct window.location redirect
-            try {
-                window.location.href = CONFIG_URLS.main;
-                setTimeout(() => {
-                    showDownloadStatus('File konfigurasi dibuka! SEB akan terbuka jika ter-associate.');
-                }, 1000);
-                return;
-            } catch (error) {
-                console.log('Direct redirect failed');
-            }
-            
-            // Method 2: Force window.open with specific parameters
-            try {
-                const popup = window.open(
-                    CONFIG_URLS.main,
-                    '_blank',
-                    'noopener,noreferrer'
-                );
-                
-                setTimeout(() => {
-                    if (popup && !popup.closed) {
-                        showDownloadStatus('File berhasil dibuka di tab baru!');
-                    } else {
-                        showDownloadStatus('Browser memblokir popup. Coba "Buka di Tab Baru"');
-                    }
-                }, 1000);
-                return;
-            } catch (error) {
-                console.log('Window.open failed');
-            }
-            
-            // Method 3: Create invisible iframe
-            try {
-                const iframe = document.createElement('iframe');
-                iframe.src = CONFIG_URLS.main;
-                iframe.style.display = 'none';
-                iframe.width = '0';
-                iframe.height = '0';
-                
-                iframe.onload = () => {
-                    showDownloadStatus('File konfigurasi dimuat! SEB akan terbuka.');
-                    setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 5000);
-                };
-                
-                iframe.onerror = () => {
-                    showDownloadStatus('Gagal memuat file. Coba tombol "Buka di Tab Baru"', true);
-                    document.body.removeChild(iframe);
-                };
-                
-                document.body.appendChild(iframe);
-                return;
-            } catch (error) {
-                console.log('Iframe method failed');
-            }
-            
-            // Method 4: Force download as fallback
-            forceFileDownload();
-        }
-        
-        // Force download with specific headers
-        function forceFileDownload() {
-            try {
-                const link = document.createElement('a');
-                link.href = CONFIG_URLS.main;
-                link.style.display = 'none';
-                
-                // Remove download attribute to let browser handle naturally
-                // This often triggers file association
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                showDownloadStatus('File konfigurasi akan dibuka atau didownload...');
-            } catch (error) {
-                showDownloadStatus('Gagal membuka file. Silakan akses manual.', true);
-            }
-        }
-        
-        // Enhanced launch with user agent detection
-        function smartLaunchSEB() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            const isWindows = userAgent.indexOf('windows') > -1;
-            const isChrome = userAgent.indexOf('chrome') > -1;
-            const isFirefox = userAgent.indexOf('firefox') > -1;
-            
-            if (isWindows && isChrome) {
-                // Windows + Chrome: Direct redirect works best
-                window.location.href = CONFIG_URLS.main;
-            } else if (isWindows && isFirefox) {
-                // Firefox: Window.open works better
-                window.open(CONFIG_URLS.main, '_blank');
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
             } else {
-                // Other platforms: Try iframe first
-                directLaunchSEB();
+                icon.style.transform = 'rotate(0deg)';
             }
-            
-            showDownloadStatus('Mencoba membuka file sesuai browser dan OS Anda...');
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1057,103 +618,6 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
-
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('i');
-            
-            answer.classList.toggle('active');
-            
-            if (answer.classList.contains('active')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // Tutorial Modal (placeholder function)
-        function showTutorial(platform) {
-            alert(`Tutorial untuk ${platform} akan segera tersedia! \n\nTerima kasih telah mengunjungi halaman kami.`);
-        }
-
-        // Configuration function - Kept for backward compatibility
-        function showConfig(platform) {
-            downloadConfig();
-        }
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-            }
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero && scrolled < hero.offsetHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Check if file download is supported
-        function checkDownloadSupport() {
-            const link = document.createElement('a');
-            return typeof link.download !== 'undefined';
-        }
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check browser support for downloads
-            if (!checkDownloadSupport()) {
-                console.warn('Browser tidak mendukung download langsung');
-            }
-            
-            // Add keyboard navigation for accessibility
-            document.addEventListener('keydown', function(e) {
-                // ESC key to close notifications
-                if (e.key === 'Escape') {
-                    const status = document.getElementById('downloadStatus');
-                    if (status.classList.contains('show')) {
-                        status.classList.remove('show');
-                    }
-                }
-            });
-        });
-
-        // Add visual feedback for button clicks
-        document.querySelectorAll('.step-platform-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                // Add click animation
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Preload critical resources
-        function preloadResources() {
-            const links = [
-                CONFIG_URLS.main,
-                'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-            ];
-            
-            links.forEach(href => {
-                const link = document.createElement('link');
-                link.rel = 'prefetch';
-                link.href = href;
-                document.head.appendChild(link);
-            });
-        }
-
-        // Call preload when page loads
-        window.addEventListener('load', preloadResources);
     </script>
 </body>
 </html>
