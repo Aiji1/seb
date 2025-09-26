@@ -755,14 +755,17 @@
                         <p>File akan langsung membuka Safe Exam Browser dengan konfigurasi yang tepat</p>
                         
                         <div class="step-download-buttons">
-                            <a href="seb://aione.my.id/files/ASTS1-25.seb" class="step-platform-btn config-btn" onclick="launchSEBConfig(); return false;">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Jalankan ASTS1-25.seb</span>
-                            </a>
-                            <a href="#" class="step-platform-btn" onclick="downloadConfig(); return false;" style="background: rgba(255,255,255,0.8); margin-left: 10px;">
+                            <a href="https://aione.my.id/files/ASTS1-25.seb" class="step-platform-btn config-btn" download="ASTS1-25.seb">
                                 <i class="fas fa-download"></i>
-                                <span>Download Manual</span>
+                                <span>Download ASTS1-25.seb</span>
                             </a>
+                        </div>
+                        <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px; font-size: 0.9rem;">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Cara Menjalankan:</strong><br>
+                            1. Klik tombol download di atas<br>
+                            2. Setelah file terdownload, <strong>double-click</strong> file ASTS1-25.seb<br>
+                            3. Safe Exam Browser akan otomatis terbuka dengan konfigurasi yang tepat
                         </div>
                         <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.2); border-radius: 10px; font-size: 0.9rem;">
                             <i class="fas fa-info-circle"></i>
@@ -918,28 +921,92 @@
             }
         }
 
-        // Function to directly launch SEB config
-        function launchSEBConfig() {
-            showDownloadStatus('Meluncurkan Safe Exam Browser...');
+        // Function to attempt direct SEB launch
+        function attemptDirectLaunch() {
+            showDownloadStatus('Mencoba membuka Safe Exam Browser...');
             
+            // Method 1: Try custom protocol
             try {
-                // Direct link to .seb file - browser akan handle dengan aplikasi yang terkait
-                window.location.href = CONFIG_URLS.main;
-                
-                // Update status
+                window.location.href = 'seb://aione.my.id/files/ASTS1-25.seb';
                 setTimeout(() => {
-                    showDownloadStatus('SEB diluncurkan! Jika tidak terbuka, pastikan SEB sudah terinstall.');
-                }, 1500);
+                    showDownloadStatus('SEB berhasil diluncurkan!');
+                }, 1000);
+            } catch (error) {
+                console.log('Protocol handler failed, trying alternative methods');
+                fallbackLaunchMethods();
+            }
+        }
+
+        // Fallback methods if direct launch fails
+        function fallbackLaunchMethods() {
+            // Method 2: Try with different MIME type
+            try {
+                const link = document.createElement('a');
+                link.href = CONFIG_URLS.main;
+                link.setAttribute('type', 'application/seb-configuration');
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                setTimeout(() => {
+                    showDownloadStatus('File konfigurasi dibuka. Jika SEB tidak terbuka, double-click file yang didownload.');
+                }, 1000);
                 
             } catch (error) {
-                console.error('Error launching SEB:', error);
-                showDownloadStatus('Tidak dapat meluncurkan SEB otomatis. Silakan download manual.', true);
-                
-                // Fallback ke download manual
+                console.log('MIME type method failed');
+                showDownloadStatus('Tidak dapat membuka langsung. File akan didownload.', true);
                 setTimeout(() => {
                     downloadConfig();
-                }, 2000);
+                }, 1000);
             }
+        }
+
+        // Enhanced launch function with multiple attempts
+        function launchSEBConfig() {
+            // Check if user agent supports protocol handlers
+            if (typeof navigator.registerProtocolHandler === 'function') {
+                try {
+                    // Attempt to register protocol handler
+                    navigator.registerProtocolHandler(
+                        'seb',
+                        window.location.origin + '/launch.html?url=%s',
+                        'Safe Exam Browser'
+                    );
+                } catch (e) {
+                    console.log('Protocol registration failed');
+                }
+            }
+            
+            attemptDirectLaunch();
+        }
+
+        // Check if SEB is installed (heuristic)
+        function checkSEBInstalled() {
+            return new Promise((resolve) => {
+                const timeout = setTimeout(() => {
+                    resolve(false);
+                }, 2000);
+                
+                // Try to detect if SEB protocol handler exists
+                const testFrame = document.createElement('iframe');
+                testFrame.style.display = 'none';
+                testFrame.src = 'seb://test';
+                
+                testFrame.onload = () => {
+                    clearTimeout(timeout);
+                    document.body.removeChild(testFrame);
+                    resolve(true);
+                };
+                
+                testFrame.onerror = () => {
+                    clearTimeout(timeout);
+                    document.body.removeChild(testFrame);
+                    resolve(false);
+                };
+                
+                document.body.appendChild(testFrame);
+            });
         }
 
         // Smooth scrolling for navigation links
