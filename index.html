@@ -268,6 +268,11 @@
             background: #dc3545;
         }
 
+        .status-notification.warning {
+            background: #ffc107;
+            color: #333;
+        }
+
         /* Footer */
         footer {
             background: #2c3e50;
@@ -377,25 +382,22 @@
                 <div class="step-item animate-on-scroll">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Jalankan File Konfigurasi</h3>
-                        <p>Pilih salah satu cara di bawah untuk menjalankan konfigurasi <strong>ASTS1-25.seb</strong></p>
+                        <h3>Buka Safe Exam Browser</h3>
+                        <p>Klik tombol di bawah untuk <strong>langsung membuka</strong> Safe Exam Browser dengan konfigurasi <strong>ASTS1-25</strong></p>
                         
                         <div class="button-container">
-                            <a href="#" class="btn btn-primary" onclick="launchSEBDirectly(); return false;">
-                                <i class="fas fa-play-circle"></i>
-                                <span>Jalankan SEB Langsung</span>
-                            </a>
-                            <a href="https://aione.my.id/files/ASTS1-25.seb" class="btn btn-secondary" download="ASTS1-25.seb">
-                                <i class="fas fa-download"></i>
-                                <span>Download ASTS1-25.seb</span>
+                            <a href="https://aiji.my.id/files/Config.seb" class="btn btn-primary">
+                                <i class="fas fa-rocket"></i>
+                                <span>Buka Safe Exam Browser</span>
                             </a>
                         </div>
 
                         <div class="info-box">
                             <i class="fas fa-info-circle"></i>
-                            <strong>Pilihan:</strong><br>
-                            • <strong>Jalankan SEB Langsung</strong> - Mencoba membuka Safe Exam Browser langsung dengan konfigurasi<br>
-                            • <strong>Download</strong> - Download file untuk dijalankan manual (double-click file .seb)
+                            <strong>Cara Kerja:</strong><br>
+                            • Klik tombol "Buka Safe Exam Browser"<br>
+                            • File konfigurasi akan otomatis membuka SEB<br>
+                            • Jika tidak terbuka otomatis, file akan didownload dan klik 2x pada file tersebut
                         </div>
                     </div>
                 </div>
@@ -457,14 +459,12 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>aione.my.id &copy; 2025 Tutorial Safe Exam Browser. Panduan untuk ujian CBT yang aman.</p>
+            <p>aiji.my.id &copy; 2025 Tutorial Safe Exam Browser. Panduan untuk ujian CBT yang aman.</p>
         </div>
     </footer>
 
     <script>
-        // Configuration URLs
-        const CONFIG_FILE_URL = 'https://aione.my.id/files/ASTS1-25.seb';
-        
+        // Configuration
         const SEB_DOWNLOAD_LINKS = {
             'windows': 'https://sourceforge.net/projects/seb/files/seb/SEB_3.10.0/SEB_3.10.0.826_SetupBundle.exe/download',
             'mac': 'https://sourceforge.net/projects/seb/files/seb-macosx/seb_macos_3.6/SafeExamBrowser-3.6.dmg/download', 
@@ -472,93 +472,27 @@
         };
 
         // Show status notification
-        function showStatus(message, isError = false) {
+        function showStatus(message, type = 'success') {
             const notification = document.getElementById('statusNotification');
             const statusText = document.getElementById('statusText');
             
             statusText.textContent = message;
             
-            if (isError) {
+            // Remove all type classes
+            notification.classList.remove('error', 'warning');
+            
+            // Add appropriate class
+            if (type === 'error') {
                 notification.classList.add('error');
-            } else {
-                notification.classList.remove('error');
+            } else if (type === 'warning') {
+                notification.classList.add('warning');
             }
             
             notification.classList.add('show');
             
             setTimeout(() => {
                 notification.classList.remove('show');
-            }, 4000);
-        }
-
-        // Direct launch SEB function
-        function launchSEBDirectly() {
-            showStatus('Mencoba membuka Safe Exam Browser...');
-            
-            // Method 1: Direct window location
-            try {
-                window.location.href = CONFIG_FILE_URL;
-                setTimeout(() => {
-                    showStatus('File konfigurasi dibuka! SEB akan terbuka jika ter-associate.');
-                }, 1000);
-                return;
-            } catch (error) {
-                console.log('Method 1 failed:', error);
-            }
-            
-            // Method 2: Window.open
-            try {
-                const newWindow = window.open(CONFIG_FILE_URL, '_blank');
-                if (newWindow) {
-                    setTimeout(() => {
-                        showStatus('File dibuka di tab baru. SEB akan terbuka otomatis.');
-                    }, 1000);
-                } else {
-                    throw new Error('Popup blocked');
-                }
-                return;
-            } catch (error) {
-                console.log('Method 2 failed:', error);
-            }
-            
-            // Method 3: Hidden iframe
-            try {
-                const iframe = document.createElement('iframe');
-                iframe.src = CONFIG_FILE_URL;
-                iframe.style.display = 'none';
-                iframe.style.width = '0';
-                iframe.style.height = '0';
-                
-                iframe.onload = () => {
-                    showStatus('Konfigurasi dimuat! SEB akan terbuka.');
-                    setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 3000);
-                };
-                
-                iframe.onerror = () => {
-                    showStatus('Gagal memuat konfigurasi. Coba download manual.', true);
-                    document.body.removeChild(iframe);
-                };
-                
-                document.body.appendChild(iframe);
-                return;
-            } catch (error) {
-                console.log('Method 3 failed:', error);
-            }
-            
-            // Fallback: Force download
-            showStatus('Mencoba download otomatis sebagai fallback...');
-            setTimeout(() => {
-                const link = document.createElement('a');
-                link.href = CONFIG_FILE_URL;
-                link.download = 'ASTS1-25.seb';
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                showStatus('File didownload. Double-click untuk membuka SEB.');
-            }, 1000);
+            }, 5000);
         }
 
         // Download SEB function
